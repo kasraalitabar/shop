@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <header class="bg-white">
+    <header class="bg-white relative z-10">
         <!-- header container -->
         <div class="px-4 py-2 flex justify-between items-center relative">
             <div onclick="toggleMobileMenu()" id="burger-btn">
@@ -51,7 +51,7 @@
                             stroke-linecap="round" />
                     </svg>
                 </div>
-                
+
                 <ul class="p-4 mt-10">
                     <li>خانه</li>
                     <li>دسته بندی ها</li>
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div id="header-slider"  class="flex gap-8 overflow-x-auto bg-black  text-white py-4 !scrollbar-hide">
+        <div id="header-slider" class="flex gap-8 overflow-x-auto bg-black text-white py-4 !scrollbar-hide">
             <span class="shrink-0">مشتریان جدید با کد {GET10} %10 صرفه جویی می کنند</span>
             <span class="shrink-0">ارسال رایگان برای تمامی سفارشات بالای 50 هزار تومان</span>
             <span class="shrink-0">%10 تخفیف برای تمام وسایل مورد نیاز تابستان!</span>
@@ -76,11 +76,9 @@
     </header>
 
     
-
     <div id="root">
         
     </div>
-    <a onclick="renderProducts()" id="showBtn" href="#burger-btn" class=" block cursor-pointer mx-auto w-max rounded-lg py-3 px-2 bg-blue-400 mt-5 mb-2 duration-200 hover:bg-green-400 ">show all products</a>
 
     </div>
 </body>
