@@ -175,7 +175,7 @@ function renderProductCard({ id, price, image, title }) {
     const template = `
     <a onclick="handleAClick(event, 'product/${id}')" href='product/${id}' class="w-full border rounded-xl overflow-hidden relative">
     <img class="object-contain rounded-xl w-full h-96" src="${image}" alt="">
-    <div class="p-2">
+    <div style="display:flex;flex-direction:column" class="p-2">
         <h4>${title}</h4>
         <span>${price}$</span>
     </div>
@@ -206,7 +206,7 @@ async function renderMainPage() {
     const container = `
     <div id="slider" class="overflow-hidden duration-1000 relative h-[50vh] md:h-[70vh] w-full whitespace-nowrap">
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-4 ">
+    <div style="margin-top:42px;" class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-4 ">
         ${template}
     </div>
     <div class="flex justify-center mt-10">
