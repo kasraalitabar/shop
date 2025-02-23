@@ -1,22 +1,5 @@
-// const CART = localStorage.getItem("cart") ? localStorage.getItem("cart") : []
-
-// const CART = localStorage.getItem("cart") || []
 
 const CART = JSON.parse(localStorage.getItem("cart")) ?? []
-
-// const CART = [
-//     {
-//         id: 10,
-//         quantity: 2
-//     },
-//     {
-//         id: 20,
-//         quantity: 3
-//     }
-// ]
-
-
-
 async function getAllProducts() {
     return await fetch("https://fakestoreapi.com/products")
         .then(res => res.json())
@@ -152,13 +135,14 @@ async function renderCart() {
         const result = await getIdProduct(cartItem);
         cartData.push(result)
     }
-
+// .................................................
     const template = cartData.map((item) => {
 
         return `
-        <div>
+        <div class="whr">
             <h3>${item.title}</h3>
             <img src='${item.image}' width="200" />
+            
         </div>
         `
     }).join("");
@@ -167,8 +151,6 @@ async function renderCart() {
 }
 
 function renderProductCard({ id, price, image, title }) {
-
-    // const { price, image, title } = product
 
     const isLowPrice = price < 100;
 
@@ -185,7 +167,7 @@ function renderProductCard({ id, price, image, title }) {
                 فروش ویژه
             </div>
         `) : ""}
-    <div class="absolute p-2 rounded-full cursor-pointer top-2 left-2 bg-white shadow-xl hover:bg-red-500">
+    <div  class="click  absolute p-2 rounded-full cursor-pointer top-2 left-2 bg-white shadow-xl hover:bg-red-500" >
         <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -253,7 +235,7 @@ async function renderAllProducts() {
     }).join("");
 
     const container = `
-    <div class="grid grid-cols-4 gap-2">
+    <div class="grid grid-cols-1 gap-2">
         ${template}
     </div>
     `
@@ -283,7 +265,7 @@ function NextPrev(evt) {
 
     renderSlider(slides)
 }
-// ...............................................................
+
 async function renderSingleProduct() {
     root.innerHTML = `
         <div class="p-10 w-fit mx-auto">
@@ -295,7 +277,7 @@ async function renderSingleProduct() {
     root.classList.add("flex", "gap-[20px]", "sm:w-full", "sm:items-center", "flex-col", "sm:flex-row", "items-center")
     const { title, image, price, id, description } = await getIdProduct(Number(location.pathname.split("/").at(-1)))
     const isLowPrice = price < 100
-    const template = `<div class="root">
+    const template = `<div class="root mr-auto ml-auto ">
         <img style="object-fit: contain;width:50%; height:30%;" src="${image}" alt="">
         <div class="title">
             <h6>${title}</h6>
@@ -434,3 +416,9 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "FINISHED";
   }
 }, 1000);
+
+
+const red =document.getElementsByClassName("click");
+red.addEventListener("click",()=>{
+    red.classList.toggle("red-background");
+});
