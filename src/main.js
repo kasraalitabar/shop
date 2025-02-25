@@ -235,7 +235,7 @@ async function renderAllProducts() {
     }).join("");
 
     const container = `
-    <div class="grid grid-cols-1 gap-2">
+    <div class=" grid grid-cols-1 md:grid-cols-4 gap-2">
         ${template}
     </div>
     `
